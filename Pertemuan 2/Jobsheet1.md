@@ -25,6 +25,7 @@ sudo dmidecode -t system
 
 ### Latihan 2.1
 Catat: (1) jumlah CPU(s), core/thread, (2) total RAM, (3) total swap. Jelaskan perbedaan RAM vs swap dalam 2–3 kalimat.
+
 Jawab : 
 * Informasi CPU
 Jumlah CPU (Logical cores): 8
@@ -73,6 +74,7 @@ lsusb -t
 ### Latihan 2.2
 Temukan 1 perangkat PCI (misal NIC) dan tuliskan: Vendor:Device ID (angka
 heksadesimal), nama driver/modul kernel, dan deskripsi singkat fungsinya.
+
 Jawab   :
 * Vendor:Device ID: 1414:008e
 (Penjelasan: Angka heksadesimal ini ditemukan di dalam kurung kotak di baris pertama perangkat tersebut).
