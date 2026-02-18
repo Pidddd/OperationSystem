@@ -151,3 +151,31 @@ lsmod | grep -i loop
 1 # echo " blacklist loop " | sudo tee / etc/ modprobe .d/blacklist - loop . conf
 ```
 ![Blacklist](Images/2.5%20Opsi%20Blacklist.png "")
+
+## Praktikum 2.6 — Mengenali Block vs Character Device
+1 Manajemen Perangkat Keras & Perintah Dasar Sistem Operasi
+```
+ ls -l / dev / sda
+ ```
+ ![Hardware](Images/2.6%20Manajemen.png "")
+
+ 2. Lihat detail device terminal:
+```
+ls -l / dev / tty
+```
+![Terminal Device](Images/2.6%20Devicw%20Terminal.png "")
+
+3. Lihat disk dan partisi untuk mengaitkan dengan /dev:
+```
+lsblk
+```
+![Disk and Partisi](Images/2.6%20disk.png "")
+
+### Latihan 2.3
+Dari output ls -l, jelaskan perbedaan penanda file untuk block device dan character device. (Hint: karakter pertama pada permission string)
+
+Jawab:
+* Block Device (Penanda 'b'): Terlihat pada Gambar percobaan pertama untuk perangkat /dev/sda, di mana karakter paling awal dari string permission adalah huruf b. Ini menunjukkan perangkat yang mengelola data dalam bentuk blok besar, seperti harddisk atau SSD.
+
+* Character Device (Penanda 'c'): Terlihat pada Gambar percobaann kedua untuk perangkat /dev/tty, di mana karakter paling awal dari string permission adalah huruf c. Ini menunjukkan perangkat yang mengelola data karakter per karakter secara berurutan, seperti terminal atau keyboard.
+
