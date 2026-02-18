@@ -5,6 +5,12 @@
 <h4> Kelas  : TI-1G <h4>
 
 ## Praktikum 2.1 - Identifikasi CPU dan Memory
-    1. Tampilkan Informasi CPU:
-        lscpu
-        
+1. Tampilkan Informasi CPU:
+```    
+lscpu
+```
+
+2. Tampilkan Ringkasan Memory
+```
+free -h
+```
