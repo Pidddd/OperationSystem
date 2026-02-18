@@ -1,1 +1,1 @@
-# Sist
+# Sistem Operasi
