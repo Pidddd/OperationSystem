@@ -447,9 +447,9 @@ Buat file server.log berisi minimal 10 baris dengan variasi kata: INFO, WARN, ER
 
 ### Latihan 2.D
 Gunakan sed untuk mengganti semua kata server menjadi node pada file latihan. Tunjukkan sebelum dan sesudah.
-Before  :
+* Before  :
 ![bf](Images/2.D%20BF.png "")
-After   :
+* After   :
 ![af](Images/2.D%20AF.png "")
 
 ### Latihan 2.E
