@@ -1,4 +1,4 @@
-# Laporan Praktikum Sistem Operasi Jobsheet 1
+# Laporan Praktikum Sistem Operasi Jobsheet 2
 
 <h4> Nama   : Ahmad Rafid Riqkullah <h4>
 <h4> NIM    : 254107020078 <h4>
