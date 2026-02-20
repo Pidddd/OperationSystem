@@ -230,6 +230,7 @@ who
 ### 1.10.1. Latihan Konseptual
 #### Latihan 1.1
 Jelaskan 5 fungsi utama sistem operasi dengan contoh konkret dari minimal 2 OS berbeda (Windows, macOS, atau Linux).
+
 Jawab : 
 1. Manajemen Proses (Mengatur Jalannya Aplikasi)
 Fungsi ini bertugas mengatur aplikasi mana yang boleh berjalan dan memastikan CPU (otak komputer) membagi waktunya dengan adil agar tidak terjadi tabrakan antar program.
@@ -258,6 +259,7 @@ Fungsi ini menjaga data dan sistem dari akses pengguna yang tidak sah serta meng
 
 #### Latihan 1.2
 Kapan sebaiknya menggunakan Windows vs Linux vs macOS? Analisis berdasarkan use case: gaming, development, server, creative work, dan enterprise.
+
 Jawab : 
 1. Gaming (Bermain Game)
 * Terbaik: Windows.
@@ -288,7 +290,14 @@ Install Ubuntu Server 22.04 LTS di VirtualBox dengan langkah berikut:
 4. Buat user account dengan password yang kuat
 5. Reboot dan login ke sistem
 6. Dokumentasikan proses instalasi dengan screenshot key steps
-* Jawab :
+
+Jawab :
+1. Karena saya menggunakan ubuntu via wsl maka saya mengunduh ubuntu di microsoft store
+    ![](Images/10.2%20Install.png "") 
+2. Karena saya menggunakan Ubuntu via WSL, saya tidak perlu membuat VM secara manual. WSL sudah terintegrasi langsung dengan Windows, sehingga alokasi RAM dan Disk dikelola otomatis oleh sistem tanpa perlu aplikasi VirtualBox.
+3. Karena saya menggunakan Ubuntu via WSL, langkah partisi tidak perlu dilakukan. Proses instalasi dari Microsoft Store sudah mengatur sistem file secara otomatis dalam bentuk Virtual Hard Disk, jadi kita tinggal pakai saja.
+4. ![](Images/10.2%20login.png "") 
+5. ![](Images/10.2%20final.png "") 
 
 #### Latihan 1.4
 Setelah instalasi Ubuntu Server, lakukan tasks berikut:
@@ -299,7 +308,14 @@ Setelah instalasi Ubuntu Server, lakukan tasks berikut:
 5. Check disk usage dengan df -h
 6. Check memory dengan free -h
 7. Dokumentasikan output dari setiap command
-* Jawab :
+
+Jawab :
+1. ![](Images/8.1%201.png "")
+2. ![](Images/8.1%202.png "")
+3. ![](Images/851.png "") 
+4. ![](Images/1.4%20neofetch.png "") 
+5. ![](Images/1.7.6%20df.png "")
+6. ![](Images/864.png "")
 
 #### Latihan 1.5
 Eksplorasi sistem yang baru diinstall:
@@ -309,7 +325,30 @@ Eksplorasi sistem yang baru diinstall:
 4. Check network connectivity: ping -c 4 google.com
 5. Install dan jalankan htop untuk melihat resource usage
 6. Buat laporan singkat tentang konfigurasi sistem Anda
-* Jawab :
+
+Jawab :
+
+1. Versi Sistem
+* Sistem menggunakan Ubuntu 22.04, yaitu salah satu versi Linux yang stabil dan umum digunakan. Karena berjalan di dalam Windows (WSL2), Linux dapat digunakan secara bersamaan tanpa harus menghapus Windows.
+
+2. Mesin Inti (Kernel)
+* Versi mesin sistem yang digunakan adalah versi terbaru untuk standar WSL. Hal ini membuat sistem lebih aman dan mendukung fitur-fitur terbaru dari Microsoft maupun Linux.
+
+3. Kapasitas Penyimpanan
+* Hardisk Utama: Tersedia ruang penyimpanan sekitar 400 MB, yang tergolong sangat luas untuk kebutuhan data.
+* Memori Tambahan (Swap): Tersedia cadangan sebesar 1 GB untuk membantu kinerja jika memori utama (RAM) mulai penuh.
+
+4. Tes Internet
+* Koneksi internet berjalan dengan lancar. Berdasarkan pengujian ke Google, responnya cepat dengan rata-rata waktu 27 milidetik. Hal ini memastikan proses unduh atau pembaruan aplikasi tidak akan mengalami kendala.
+
+5. Kondisi Performa (RAM & CPU)
+
+Kondisi beban kerja sistem saat ini sangat ringan:
+* Prosesor (CPU): Hampir tidak ada beban kerja (sangat lega), sehingga performa tetap maksimal.
+* Memori (RAM): Baru terpakai sedikit (401 MB) dari total kapasitas 3.7 GB. Sistem masih memiliki banyak ruang untuk menjalankan aplikasi lain tanpa terasa lambat.
+
+Kesimpulan:
+Sistem telah terpasang dengan benar, koneksi internet aktif dan stabil, serta performa perangkat secara keseluruhan sangat ringan dan responsif.
 
 ### 1.10.3. Latihan Refleksi
 #### Latihan 1.6
@@ -321,3 +360,25 @@ Ceritakan pengalaman Anda dengan sistem operasi:
 5. Apakah Anda pernah menggunakan sistem operasi lain? Bandingkan pengalaman Anda.
 6. Setelah mempelajari bab ini, apakah ada sistem operasi lain yang ingin Anda coba? Mengapa?
 Tulis refleksi Anda dalam 300-500 kata disertai dengan dokumentasi.
+
+Jawab   :
+1. Sistem Operasi yang Digunakan
+Sistem operasi utama yang digunakan saat ini adalah Windows. OS ini dipilih karena fleksibilitasnya dalam mendukung berbagai jenis aktivitas, mulai dari produktivitas hingga hiburan.
+![](Images/1.6%20Wind.png "") 
+
+2. Durasi Penggunaan
+Pengalaman menggunakan Windows sudah cukup lama, diperkirakan sudah lebih dari 10 tahun. Selama rentang waktu tersebut, penggunaan sudah mencakup berbagai versi Windows yang ada.
+
+3. Alasan Memilih Windows
+Alasan utama bertahan menggunakan Windows adalah tampilannya yang sangat mudah dipahami oleh siapa saja (user-friendly). Selain itu, Windows sangat "gaming-able", artinya hampir semua game populer di dunia pasti bisa berjalan dengan lancar di sistem operasi ini.
+
+4. Kendala atau Masalah yang Pernah Dialami
+Masalah yang paling diingat adalah saat memiliki laptop dengan versi Windows yang sudah lama dan tidak bisa lagi diperbarui (update). Kendalanya muncul ketika ada pembaruan sistem yang membuat beberapa software menjadi tidak mendukung (not support). Akibatnya, harus repot mencari versi software lama yang sesuai, bahkan ada beberapa aplikasi penting yang akhirnya tidak bisa dijalankan sama sekali di laptop tersebut.
+![](Images/1.6%20BS.jpg "") 
+
+5. Pengalaman Menggunakan Sistem Operasi Lain
+Pernah mencoba macOS sebagai perbandingan. Perbedaan yang paling terasa adalah macOS sangat unggul dan nyaman untuk multitasking (membuka banyak aplikasi sekaligus). Selain itu, desain antarmuka macOS terlihat lebih rapi dan elegan. Namun, kekurangannya adalah macOS sangat tidak disarankan untuk gaming, tidak seperti Windows.
+
+6. OS yang Ingin Dipelajari Lebih Dalam
+Sistem operasi yang paling ingin dipelajari lebih lanjut adalah macOS. Hal ini dikarenakan masih ada rasa penasaran dan belum sempat mengeksplorasi fitur-fitur teknis di dalamnya secara lebih mendalam.
+![](Images/1.6%20macos.jpg "") 
