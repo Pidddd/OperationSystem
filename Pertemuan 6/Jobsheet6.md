@@ -88,5 +88,34 @@
 
 # 1.8 Latihan
 ## Latihan 6.A
+![](images/6.A.png "")
+* Eksplorasi Proses Sistem
+1. Jalankan ps aux –forest dan temukan proses dengan PID 1. Apa nama dan fungsi proses tersebut dalam sistem Linux modern?
+2. Hitung berapa proses yang dimiliki oleh user root dan berapa yang dimiliki oleh user Anda. Mengapa root memiliki lebih banyak proses?
+3. Temukan semua proses yang berada dalam kondisi S. Mengapa sebagian besar proses di sistem berada dalam kondisi ini?
+* Jawaban Latihan 6.A
+1. Proses PID 1: Berdasarkan hasil perintah, proses dengan PID 1 adalah 'systemd'. Dalam sistem Linux modern, systemd berfungsi sebagai sistem init utama (pengelola sistem dan layanan) yang bertugas untuk memulai dan mengelola semua proses lain sejak komputer pertama kali dihidupkan (booting).
+2. Jumlah proses root vs user: Terdapat 24 proses milik root dan hanya 7 proses milik user (piddd). User root memiliki jauh lebih banyak proses karena root bertanggung jawab untuk menjalankan dan memelihara berbagai layanan inti sistem operasi di latar belakang (seperti jaringan, pencatatan log, dan manajemen perangkat keras), sedangkan user biasa hanya menjalankan proses untuk aplikasi yang sedang ia pakai.
+3. Alasan kondisi 'S' dominan: Sebagian besar proses (seperti systemd, cron, atau networkd-dispatcher) berada dalam kondisi 'S' (Interruptible Sleep). Ini terjadi karena sistem operasi bekerja sangat cepat; sebagian besar program yang berjalan di latar belakang menghabiskan waktunya untuk "tidur" atau menunggu suatu kejadian (event) terjadi, seperti menunggu input dari pengguna, menunggu data dari jaringan, atau menunggu timer habis, sebelum mereka aktif menggunakan CPU kembali.
+
 ## Latihan 6.B
+![](images/6.B.png "")
+* Simulasi Manajemen Job
+1. Jalankan tiga perintah sleep dengan durasi 100, 200, dan 300 detik di background. Verifikasi ketiganya dengan jobs.
+2. Bawa job kedua ke foreground, jeda dengan Ctrl+Z , lalu kembalikan ke background dengan bg.
+3. Hentikan job pertama dengan kill %1. Tampilkan kembali daftar job. Berapa job yang tersisa?
+* Jawaban Latihan 6.B
+1. Verifikasi jobs: Tiga proses sleep (100, 200, 300) berhasil dijalankan di background dan terdaftar dalam sistem jobs dengan status 'Running'.
+2. Manajemen foreground-background: Job kedua (sleep 200) berhasil dipanggil ke foreground dengan perintah 'fg %2'. Saat ditekan Ctrl+Z, proses tersebut langsung terjeda (status berubah menjadi 'Stopped'). Setelah perintah 'bg %2' dijalankan, proses tersebut kembali dilanjutkan namun berjalan di latar belakang (background).
+3. Sisa jobs setelah kill: Setelah job pertama dihentikan (kill %1), statusnya berubah menjadi 'Terminated'. Saat dicek kembali daftar job-nya, kini hanya tersisa 2 job yang masih aktif (Running), yaitu job kedua dan ketiga.
+
 ## Latihan 6.C
+![](images/6.C.png "")
+* Prioritas dan Sinyal
+1. Jalankan dua proses sleep: satu dengan nice +5 dan satu dengan nice +15. Verifikasi nilai NI keduanya dengan ps.
+2. Gunakan renice untuk mengubah nice proses pertama menjadi +10. Proses mana yang kini lebih diprioritaskan scheduler?
+3. Kirim SIGSTOP ke salah satu proses, verifikasi kondisi T-nya, lalu kirim SIGCONT. Akhiri semua proses percobaan dengan pkill sleep.
+* Jawaban Latihan 6.C
+1. Verifikasi nilai NI awal: Kedua proses sleep berhasil dijalankan. Proses pertama memiliki nilai nice (NI) sebesar 5, sedangkan proses kedua memiliki nilai nice sebesar 15.
+2. Pengubahan prioritas (renice): Setelah menggunakan renice pada proses pertama (PID 3876), nilai nice-nya berhasil diubah dari 5 menjadi 10. Karena angka nice proses pertama (+10) sekarang lebih kecil daripada angka nice proses kedua (+15), maka proses pertama-lah yang kini lebih diprioritaskan oleh CPU scheduler.
+3. Sinyal STOP dan CONT: Sinyal SIGSTOP berhasil dikirim ke proses pertama, hal ini diverifikasi dengan perubahan statusnya pada kolom STAT yang menjadi 'T' (Stopped). Saat sinyal SIGCONT dikirimkan, proses tersebut dilanjutkan kembali dan percobaan diakhiri dengan membersihkan semua proses sleep menggunakan 'pkill'.
