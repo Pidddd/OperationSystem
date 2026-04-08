@@ -51,13 +51,14 @@
 
 ## 1.8 Tugas Praktikum
 ### Tugas Praktikum 1 — Toolkit Bash Administrator Pribadi
-![](images/6 "")
+![](images/l.1.png "")
+![](images/l.1%202.png "")
 
 ### Tugas Praktikum 2 — Audit File Konfigurasi dan Logging Aman
-![](images/6 "")
+![](images/l.2.png "")
 
 ### Tugas Praktikum 3 — Mini Health Check Harian Server
-![](images/6 "")
+![](images/l.3.png "")
 
 ### Tugas Praktikum 4 — Penanganan File dengan Nama Kompleks dan Arsip Aman
-![](images/6 "")
+![](images/l4.png "")
