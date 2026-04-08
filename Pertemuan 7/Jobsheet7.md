@@ -53,12 +53,16 @@
 ### Tugas Praktikum 1 — Toolkit Bash Administrator Pribadi
 ![](images/l.1.png "")
 ![](images/l.1%202.png "")
+* Pada tugas ini, direktori script pribadi (~/praktikum-os/week07-bash/bin) berhasil ditambahkan ke dalam variabel lingkungan PATH melalui modifikasi file .bashrc. Keberhasilan ini dibuktikan dengan tereksekusinya script ringkasan-server dari sembarang direktori (misalnya /tmp) tanpa perlu mengetikkan jalur (path) lengkapnya. Selain itu, pendefinisian 2 alias pendukung (update-sistem dan cek-port) serta 1 fungsi shell (fungsi_cek_ip) juga berhasil diregistrasi oleh sistem, yang dikonfirmasi melalui output perintah type.
 
 ### Tugas Praktikum 2 — Audit File Konfigurasi dan Logging Aman
 ![](images/l.2.png "")
+* Proses inventarisasi file konfigurasi di dalam direktori /etc berjalan dengan baik menggunakan perintah pencarian. Praktik logging yang aman berhasil diimplementasikan dengan memanfaatkan fitur error redirection (2>). Dengan metode ini, pesan error (seperti kendala izin akses atau Permission denied) sukses dipisahkan dan dialihkan ke dalam file audit-error.log. Output file normal beserta hasil analisis administrator kemudian ditampilkan ke terminal dan disimpan secara serentak ke dalam file laporan menggunakan perintah tee.
 
 ### Tugas Praktikum 3 — Mini Health Check Harian Server
 ![](images/l.3.png "")
+* Script otomatis daily-healthcheck berhasil dibuat untuk mengumpulkan status kondisi server secara instan. Script ini memanfaatkan kombinasi command substitution dan variabel lingkungan untuk menampilkan data real-time, seperti identitas pengguna, hostname, memori, hingga metrik penyimpanan disk. Riwayat 10 perintah terakhir juga berhasil ditampilkan dengan membaca file .bash_history. Eksekusi script ini kemudian direkam dengan rapi ke dalam file berekstensi .log sebagai dokumentasi pemeriksaan harian.
 
 ### Tugas Praktikum 4 — Penanganan File dengan Nama Kompleks dan Arsip Aman
 ![](images/l4.png "")
+* Tugas ini mendemonstrasikan krusialnya teknik quoting dalam Bash. Pengujian membuktikan bahwa nama file yang mengandung spasi (seperti "data penting.txt") akan memicu error jika diakses tanpa tanda kutip, karena sistem memproses spasi sebagai pemisah argumen. Dengan menggunakan double quotes, file bernama kompleks tersebut dapat dikelola dan disalin dengan aman. Lebih lanjut, praktik aman sebelum memproses banyak file dilakukan dengan melihat preview wildcard menggunakan echo , dan seluruh file backup tersebut sukses diarsipkompresi ke dalam format .tar.gz.
