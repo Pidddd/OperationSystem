@@ -119,13 +119,34 @@ Coba atur quota baru untuk userA dengan batas inode yang sangat kecil, kemudian 
 
 ## 1.7 Latihan
 ### Latihan Latihan 9.A — Audit dan Kolaborasi
-![](Images/ "")
 1. Temukan file SUID aktif dengan find / -perm -4000 -type f 2>/dev/null, lalu jelaskan tiga file yang Anda kenali beserta alasannya.
 2. Cari direktori world-writable dan tentukan mana yang valid dan mana yang berisiko.
 3. Rancang konfigurasi permission standar dan ACL untuk direktori proyek /srv/webapp/ agar group webapp-team dapat menulis, user deploy hanya membaca, dan file baru selalu mewarisi group proyek.
 - **Jawab:**
+**1. File SUID Aktif**
+  Tiga contoh file SUID yang umum ditemukan dan alasannya:
+  * `/usr/bin/passwd`: File ini membutuhkan SUID karena saat user biasa mengganti password miliknya, sistem perlu menulis data sandi baru tersebut ke dalam file `/etc/shadow`. Hak akses untuk memodifikasi `/etc/shadow` ini hanya dimiliki secara eksklusif oleh `root`.
+  * `/usr/bin/sudo`: Memerlukan SUID agar user biasa diizinkan mengeksekusi perintah dengan level administrator secara sementara sesuai dengan aturan yang ada di konfigurasi sudoers.
+  * `/usr/bin/su`: Digunakan untuk berpindah sesi ke pengguna lain, yang mana proses validasi kredensialnya memerlukan kemampuan untuk membaca file sistem yang sensitif.
+
+  **2. Direktori World-Writable**
+  * **Valid:** Direktori seperti `/tmp` dan `/var/tmp`. Kedua direktori ini memang dirancang terbuka (*world-writable* dengan izin `777`) karena digunakan sebagai wadah file sementara (*temporary*) bagi semua user dan aplikasi. Biasanya direktori ini diamankan dengan *Sticky Bit* agar user tidak bisa saling menghapus file milik orang lain.
+  * **Berisiko:** Jika direktori sistem yang sangat vital (seperti `/etc/`, `/usr/bin/`, atau direktori *home* milik admin) memiliki sifat *world-writable*. Ini sangat berbahaya karena peretas atau program jahat bisa dengan bebas memodifikasi *script* sistem atau mencuri konfigurasi inti dari OS.
+![](Images/l.1.png "")
 
 
 ### Latihan Latihan 9.B — Kebijakan Akun dan Quota
 - Tuliskan langkah untuk membuat user intern, menambahkannya ke group labgroup, memaksa pergantian password tiap 45 hari (warning 7 hari), memberi izin sudo hanya untuk systemctl status, dan menetapkan quota ruang serta inode sederhana pada /home/.
 - **Jawab:**
+1. Membuat user dan set kebijakan password
+    * sudo useradd -m -s /bin/bash -G labgroup intern
+    * sudo passwd intern
+    * sudo chage -M 45 -W 7 intern
+2. Memberikan izin sudo khusus
+    * sudo visudo -f /etc/sudoers.d/intern
+Di dalam editor tambahkan baris ini: intern ALL=(ALL) /bin/systemctl status *Lalu save dan keluar
+3. Cek hasil konfigurasi sudo
+    * sudo -l -U intern
+4. Perintah untuk set quota di /home/
+    * sudo setquota -u intern 512000 1024000 1000 2000 /home/
+![](Images/l.2.png "")
